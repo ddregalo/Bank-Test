@@ -60,7 +60,7 @@ describe 'Account' do
       subject.deposit(100)
       subject.withdraw(50)
       expect(STDOUT).to receive(:puts).with(
-        "DATE || CREDIT || DEBIT || BALANCE\n23/04/2018 || 100.00 ||  || 100.00\n23/04/2018 ||  || 50.00 || 50.00"
+        "DATE || CREDIT || DEBIT || BALANCE\n23/04/2018 ||  || 50.00 || 50.00\n23/04/2018 || 100.00 ||  || 100.00"
       )
       subject.show_account_statement
     end

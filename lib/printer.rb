@@ -4,7 +4,7 @@
 class Printer
   def print_statement(transaction_history)
     account_statement = ['DATE || CREDIT || DEBIT || BALANCE']
-    transaction_history.each do |transaction|
+    transaction_history.reverse.each do |transaction|
       account_statement << transaction
     end
     puts account_statement.join("\n")
