@@ -43,4 +43,15 @@ describe 'Account' do
       expect(subject.withdraw(50.00)).to eq(statement.transaction_history)
     end
   end
+
+  describe '#show_account_statement' do
+    it 'Prints the account transaction history reverse sorted to console' do
+      subject.deposit(100.00)
+      subject.withdraw(50.00)
+      expect(STDOUT).to receive(:puts).with(
+        "DATE || CREDIT || DEBIT || BALANCE\n23-04-2018 || 100.00 ||  || 100.00\n23-04-2018 ||  || 50.00 || 50.00"
+      )
+      subject.show_account_statement
+    end
+  end
 end

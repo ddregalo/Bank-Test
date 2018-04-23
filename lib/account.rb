@@ -6,11 +6,13 @@ class Account
   def initialize(
     statement = Statement.new,
     date = DateFormatter.new,
-    balance = 0
+    balance = 0,
+    printer = Printer.new
   )
     @balance = balance
     @date = date
     @statement = statement
+    @printer = printer
   end
 
   def deposit(amount)
@@ -23,5 +25,9 @@ class Account
     @balance -= amount
     transaction_date = @date.format_date
     @statement.transaction_history << "#{transaction_date} ||  || #{format('%.2f', amount)} || #{format('%.2f', @balance)}"
+  end
+
+  def show_account_statement
+    @printer.print_statement(@statement.transaction_history)
   end
 end
