@@ -13,4 +13,12 @@ describe 'Account' do
       expect(subject.balance).to eq(100)
     end
   end
+
+  describe '#withdraw' do
+    it 'Subtracts the withdrawal amount from the balance' do
+      subject.deposit(100)
+      subject.withdraw(50)
+      expect(subject.balance).to eq(50)
+    end
+  end
 end
