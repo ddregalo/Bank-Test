@@ -1,4 +1,4 @@
-# BANK TECH TEST
+# Bank Tech Test
 
 A program that processes bank transactions (deposit or withdrawal) and returns an account statement of all transactions by a single user. The account statement includes **date**, **amount** (credit or debit) and resulting **balance** for each transaction in order of most recent transaction showing first (at the top of statement).
 
@@ -43,3 +43,41 @@ I want to ensure a client can not withdraw more money
 than their current balance.
 
 ```
+
+
+## Program Feature Demonstration (IRB in console)
+```
+> require_relative './lib/account.rb'
+ => true
+
+> require_relative './lib/statement.rb'
+ => true
+
+> require_relative './lib/date_formatter.rb'
+ => true
+
+> require_relative './lib/printer.rb'
+ => true
+
+> account = Account.new
+ => #<Account:0x00007fe59708acd0 @balance=0, @date=#<DateFormatter:0x00007fe59708ac58>, @statement=#<Statement:0x00007fe59708aca8 @transaction_history=[]>, @printer=#<Printer:0x00007fe59708ac30>>
+
+> account.deposit(1000)
+ => ["23/04/2018 || 1000.00 ||  || 1000.00"]
+
+> account.withdraw(1500)
+Traceback (most recent call last):
+        3: from /Users/danielcampos/.rvm/rubies/ruby-2.5.0/bin/irb:11:in `<main>'
+        2: from (irb):7
+        1: from /Users/danielcampos/Projects/Tech-Test-Practise/Bank-Test/lib/account.rb:25:in `withdraw'
+RuntimeError (Transaction Denied! Your maximum available balance is 1000.)
+
+> account.withdraw(500)
+ => ["23/04/2018 || 1000.00 ||  || 1000.00", "23/04/2018 ||  || 500.00 || 500.00"]
+
+> account.show_account_statement
+DATE || CREDIT || DEBIT || BALANCE
+23/04/2018 || 1000.00 ||  || 1000.00
+23/04/2018 ||  || 500.00 || 500.00
+ => nil
+ ```

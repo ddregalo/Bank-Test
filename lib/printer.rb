@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Printer class puts an account transaction history to console STDOUT
 class Printer
   def print_statement(transaction_history)

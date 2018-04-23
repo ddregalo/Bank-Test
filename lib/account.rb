@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Account class is responsible for having a balance
 # Account class can deposit and withdraw from balance accordingly
 class Account
@@ -22,7 +24,7 @@ class Account
   end
 
   def withdraw(amount)
-    raise "Transaction Denied! Your maximum available balance is 100." if amount > @balance
+    raise "Transaction Denied! Your maximum available balance is #{@balance}." if amount > @balance
     @balance -= amount
     transaction_date = @date.format_date
     @statement.transaction_history << "#{transaction_date} ||  || #{format('%.2f', amount)} || #{format('%.2f', @balance)}"

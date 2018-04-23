@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'account'
 
 describe 'Account' do
@@ -46,8 +48,8 @@ describe 'Account' do
     context 'Client tries to withdraw more than their balance' do
       it 'should raise error' do
         subject.deposit(100)
-        expect{ subject.withdraw(200) }.to raise_error(
-          "Transaction Denied! Your maximum available balance is 100."
+        expect { subject.withdraw(200) }.to raise_error(
+          'Transaction Denied! Your maximum available balance is 100.'
         )
       end
     end
