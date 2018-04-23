@@ -81,3 +81,5 @@ DATE || CREDIT || DEBIT || BALANCE
 23/04/2018 ||  || 500.00 || 500.00
  => nil
  ```
+
+Feel free to get in touch for any questions or comments - suggestions are always welcome! :)
