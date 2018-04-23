@@ -9,16 +9,24 @@ describe 'Account' do
 
   describe '#deposit' do
     it 'Adds the deposit amount to balance' do
-      subject.deposit(100)
-      expect(subject.balance).to eq(100)
+      subject.deposit(100.00)
+      expect(subject.balance).to eq(100.00)
+    end
+
+    it 'Adds the transaction as string to statement transaction history' do
+      statement = instance_double(
+        'Statement',
+        transaction_history: ['23-04-2018 || 100.00 ||  || 100.00']
+      )
+      expect(subject.deposit(100.00)).to eq(statement.transaction_history)
     end
   end
 
   describe '#withdraw' do
     it 'Subtracts the withdrawal amount from the balance' do
-      subject.deposit(100)
-      subject.withdraw(50)
-      expect(subject.balance).to eq(50)
+      subject.deposit(100.00)
+      subject.withdraw(50.00)
+      expect(subject.balance).to eq(50.00)
     end
   end
 end
