@@ -34,4 +34,12 @@ So I can keep track of my finances,
 I want to see an account statement printed
 with all past transactions - details of date,
 transaction amount and resulting balance for each transaction.
+
+EDGE CASE (Additional Feature)
+
+As a bank,
+So I can protect my business and other client's money,
+I want to ensure a client can not withdraw more money
+than their current balance.
+
 ```

@@ -22,6 +22,7 @@ class Account
   end
 
   def withdraw(amount)
+    raise "Transaction Denied! Your maximum available balance is 100." if amount > @balance
     @balance -= amount
     transaction_date = @date.format_date
     @statement.transaction_history << "#{transaction_date} ||  || #{format('%.2f', amount)} || #{format('%.2f', @balance)}"
