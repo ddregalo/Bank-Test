@@ -16,7 +16,7 @@ describe 'Account' do
     it 'Adds the transaction as string to statement transaction history' do
       statement = instance_double(
         'Statement',
-        transaction_history: ['23-04-2018 || 100.00 ||  || 100.00']
+        transaction_history: ['23/04/2018 || 100.00 ||  || 100.00']
       )
       allow(Time).to receive(:now).and_return('2018-04-23 15:00:00 +0100')
       expect(subject.deposit(100.00)).to eq(statement.transaction_history)
@@ -34,8 +34,8 @@ describe 'Account' do
       statement = instance_double(
         'Statement',
         transaction_history: [
-          '23-04-2018 || 100.00 ||  || 100.00',
-          '23-04-2018 ||  || 50.00 || 50.00'
+          '23/04/2018 || 100.00 ||  || 100.00',
+          '23/04/2018 ||  || 50.00 || 50.00'
         ]
       )
       allow(Time).to receive(:now).and_return('2018-04-23 15:00:00 +0100')
@@ -49,7 +49,7 @@ describe 'Account' do
       subject.deposit(100.00)
       subject.withdraw(50.00)
       expect(STDOUT).to receive(:puts).with(
-        "DATE || CREDIT || DEBIT || BALANCE\n23-04-2018 || 100.00 ||  || 100.00\n23-04-2018 ||  || 50.00 || 50.00"
+        "DATE || CREDIT || DEBIT || BALANCE\n23/04/2018 || 100.00 ||  || 100.00\n23/04/2018 ||  || 50.00 || 50.00"
       )
       subject.show_account_statement
     end

@@ -5,7 +5,7 @@ describe 'DateFormatter' do
   describe '#format_date' do
     it 'Returns the current day in format dd/mm/yyyy' do
       allow(Time).to receive(:now).and_return('2018-04-23 15:00:00 +0100')
-      expect(subject.format_date).to eq('23-04-2018')
+      expect(subject.format_date).to eq('23/04/2018')
     end
   end
 end

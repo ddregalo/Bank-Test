@@ -2,6 +2,6 @@
 class DateFormatter
   def format_date
     today = Time.now.to_s
-    today.split(' ').first.split('-').reverse.join('-')
+    today.split(' ').first.split('-').reverse.join('/')
   end
 end
