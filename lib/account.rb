@@ -21,5 +21,7 @@ class Account
 
   def withdraw(amount)
     @balance -= amount
+    transaction_date = @date.format_date
+    @statement.transaction_history << "#{transaction_date} ||  || #{format('%.2f', amount)} || #{format('%.2f', @balance)}"
   end
 end
