@@ -44,6 +44,9 @@ than their current balance.
 
 ```
 
+## Program Model
+
+![Bank Tech Test Program Diagram](bank-test-diagram.png)
 
 ## Program Feature Demonstration (IRB in console)
 ```
